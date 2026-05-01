@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  <style>
+body{
+    width:100%;
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.root{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.name{
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.enter{
+    height: 30px;
+    width:200px;  
+    padding:4px;
+    border-radius: 5px;
+    border:1px solid black;
+}
+.btn{
+    padding:11px 30px;
+     border-radius: 5px;
+     color: white;
+     font-weight: 600;
+       border:1px solid black;
+       background-color: rgb(35, 134, 247);
+}
+ul{
+    margin-right: 130px;
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+li{
+    list-style: none;
+  background-color: rgb(35, 134, 247);
+ height: 30px;
+    width:200px; 
+    color: white;
+    padding-left: 5px;
+}
+  </style> 
+
+</head>
+<body>
+    
+    <div class="root">
+<span class="name">Todo List</span>
+
+<div class="branch">
+<input class="enter" placeholder="Enter Your Task">
+<button class="btn" onclick="addTask()">Add</button>
+</div>
+<div>
+
+    <ul class="list"></ul>
+</div>
+
+    </div>
+  
+<script>
+function addTask(){
+    let ip=document.querySelector(".enter");
+    let ipvalue=ip.value.trim();
+    if(ipvalue==="")
+    return alert("enter something");
+
+    let newLi=document.createElement("li");
+    newLi.innerText=ipvalue;
+newLi.onclick=function(){
+    this.remove();
+}
+    document.querySelector(".list").appendChild(newLi);
+
+    ip.value="";
+}
+
+</script>
+</body>
+</html>
